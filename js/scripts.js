@@ -1,10 +1,22 @@
 $(function(){
   console.log('scripts loaded');
 var myKey = config.MY_KEY;
-var userFood1 = 'egg';
-var userFood2 = 'bacon';
-var chosenFood1 = '&q=' + userFood1 ;
-var chosenFood2 = '%20' + userFood2 + '&page=2';
+var userFood1 = document.getElementById('ingredient-search1');
+var userFood2 = document.getElementById('ingredient-search2');
+var userIng1 = '';
+var userIng2 = '';
+var btn = document.getElementById('submit');
+
+btn.addEventListener('click', function(){
+  userIng1 = userFood1.value;
+  userIng2 = userFood2.value;
+  console.log(userIng1);
+  console.log(userIng2);
+
+
+var chosenFood1 = '&q=' + userIng1 ;
+var chosenFood2 = '%20' + userIng2 + '&page=1';
+console.log(chosenFood1);
 
 var url= 'https://www.food2fork.com/api/search?key=' + myKey + chosenFood1 + chosenFood2;
 var url2 = 'https://www.food2fork.com/api/get?key=' + myKey + '&rId=35382';
@@ -24,18 +36,19 @@ var i='';
     success:function(data){
       var foody=data.recipes;
       console.log(foody);
+      console.log(url);
       //console.log(foody.map(data => data.title));
 
       foody.forEach(function(data){
         console.log(data.title);
-      /*  html += '<div class="latest-news flex">';
-          html += '<img class="thumbnail" src="' + food.image_url + '">';
+       html += '<div class="latest-news flex">';
+          html += '<img class="thumbnail" src="' + data.image_url + '">';
           html += '<div class="text">';
-          html += '<a href="' + food.image_url + '" target="blank">';
-          html += '<h2 class="headline">' + food.title + '</h2>';
-          html += '<h4 class="byline"> by ' + food.ingredients + ', <em>' + article.source.name + '</em></h4>';
+          html += '<a href="' + data.f2f_url + '" target="blank">';
+          html += '<h2 class="headline">' + data.title + '</h2>';
+          html += '<h4 class="byline"> by ' + data.publisher + ', <em>' + data.social_rank + '</em></h4>';
           html += '</a></div>';
-        html += '</div>'; */
+        html += '</div>';
 
       }); // foreach
       $('#results').html(html);
@@ -46,4 +59,6 @@ var i='';
 
 //} //close loop
 
-});
+}); // close button
+
+}); // close wrapper
