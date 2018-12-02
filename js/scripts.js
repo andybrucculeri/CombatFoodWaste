@@ -1,5 +1,26 @@
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+function onYouTubeIframeAPIReady() {
+    console.log('vid loaded');
+  player = new YT.Player('player', {
+    height: '390',
+    width: '640',
+    videoId: 'IoCVrkcaH6Q'
+  });
+}
+
+
 $(function(){
   console.log('scripts loaded');
+
+
   var myKey = config.MY_KEY;
   var userFood1 = document.getElementById('ingredient-search1');
   var userFood2 = document.getElementById('ingredient-search2');
