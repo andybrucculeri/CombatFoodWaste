@@ -25,12 +25,15 @@ $(function(){
   var userIng2 = '';
   var btn = document.getElementById('submit');
   var foodbtn = document.getElementById('search');
+  var getFood = document.getElementById('food-search');
+  var findFood = '';
 
-  foodbtn.addEventListener('click', function(){
+  /*foodbtn.addEventListener('click', function(){
     var url= "";
     var data= [];
     var html= '';
-    var findFood = foodbtn.value;
+    findFood = getFood.value;
+    console.log(findFood);
 
     $.ajax({
       url: "https://data.mo.gov/resource/ik3n-3nbb.json",
@@ -47,82 +50,74 @@ $(function(){
         var agency = data.map(data => data.agency_name);
         var county = data.map(data => data.county);
         var phone = data.map(data => data.phone_number);
-         console.log(findFood);
 
         var tablehtml ='';
         var tableContent = document.getElementById('table-content');
         function buildTable(){
           tablehtml += '<tr><th>Agency</th><th>Phone Number</th><th>Address</th></tr>';
           for (i=0; i < data.length; i++){
-            if(findFood === city[i] || state[i] || zip[i]){
-            tablehtml += '<tr>';
-            tablehtml += '<td>' + agency[i] + '</td><td>' + phone[i] + '</td><td>' + address[i] + city[i] + state[i] + zip[i] + '</td>';
-            tablehtml += '</tr>';
-          } else {
-            tablehtml += 'no results';
-          }
-          }
-          //display the table rows in the empty table div
+          //  if(findFood === city[i] || state[i] || zip[i]){
+          if(findFood === city[i] || findFood === state[i] ||findFood === zip[i] ){
+              tablehtml += '<tr>';
+              tablehtml += '<td>' + agency[i] + '</td><td>' + phone[i] + '</td><td>' + address[i] + city[i] + state[i] + zip[i] + '</td>';
+              tablehtml += '</tr>';
+            } // close if
+          }  // close forloop
           tableContent.innerHTML = tablehtml;
-        }
+        } // close buildtable
         buildTable();
 
-    } // success function
-  }); // close ajax
-}); // close button
+      } // success function
+    }); // close ajax
+  }); // close button */
 
 
-btn.addEventListener('click', function(){
-  userIng1 = userFood1.value;
-  userIng2 = userFood2.value;
-  console.log(userIng1);
-  console.log(userIng2);
+  btn.addEventListener('click', function(){
+    userIng1 = userFood1.value;
+    userIng2 = userFood2.value;
+    console.log(userIng1);
+    console.log(userIng2);
 
 
-  var chosenFood1 = '&q=' + userIng1 ;
-  var chosenFood2 = '%20' + userIng2 + '&page=1';
-  console.log(chosenFood1);
+    var chosenFood1 = '&q=' + userIng1 ;
+    var chosenFood2 = '%20' + userIng2 + '&page=1';
+    console.log(chosenFood1);
 
-  var url= 'https://www.food2fork.com/api/search?key=' + myKey + chosenFood1 + chosenFood2;
-  var url2 = 'https://www.food2fork.com/api/get?key=' + myKey + '&rId=35382';
-  var data= [];
-  var html= '';
-  // var urlArray=[url, url2];
-  var i='';
+    var url= 'https://www.food2fork.com/api/search?key=' + myKey + chosenFood1 + chosenFood2;
+    var url2 = 'https://www.food2fork.com/api/get?key=' + myKey + '&rId=35382';
+    var data= [];
+    var html= '';
+    var i='';
 
-  //for(i=0; i<urlArray.length; i++){
+    $.ajax({
+      type:'GET',
+      url: url,
+      dataType: 'json',
+      async: true,
+      data: data,
+      success:function(data){
+        var foody=data.recipes;
+        console.log(foody);
+        console.log(url);
+        console.log(foody.map(data => data.title));
+        foody.forEach(function(data){
+          console.log(data.title);
+          html += '<div class="latest-news flex">';
+          html += '<img class="thumbnail" src="' + data.image_url + '">';
+          html += '<div class="text">';
+          html += '<a href="' + data.f2f_url + '" target="blank">';
+          html += '<h2 class="headline">' + data.title + '</h2>';
+          html += '<h4 class="byline"> by ' + data.publisher + ', <em>' + data.social_rank + '</em></h4>';
+          html += '</a></div>';
+          html += '</div>';
 
-  $.ajax({
-    type:'GET',
-    url: url,
-    dataType: 'json',
-    async: true,
-    data: data,
-    success:function(data){
-      var foody=data.recipes;
-      console.log(foody);
-      console.log(url);
-      console.log(foody.map(data => data.title));
-      foody.forEach(function(data){
-        console.log(data.title);
-        html += '<div class="latest-news flex">';
-        html += '<img class="thumbnail" src="' + data.image_url + '">';
-        html += '<div class="text">';
-        html += '<a href="' + data.f2f_url + '" target="blank">';
-        html += '<h2 class="headline">' + data.title + '</h2>';
-        html += '<h4 class="byline"> by ' + data.publisher + ', <em>' + data.social_rank + '</em></h4>';
-        html += '</a></div>';
-        html += '</div>';
+        }); // foreach
+        $('#results').html(html);
 
-      }); // foreach
-      $('#results').html(html);
+      } // success function
 
-    } // success function
+    }); // ajax
 
-  }); // ajax
-
-  //} //close loop
-
-}); // close button
+  }); // close button
 
 }); // close wrapper
