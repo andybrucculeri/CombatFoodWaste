@@ -50,21 +50,20 @@ $(function(){
       data: data,
       success:function(data){
         var foody=data.recipes;
-        console.log(foody);
-        console.log(url);
         console.log(foody.map(data => data.title));
         foody.forEach(function(data){
           console.log(data.title);
           html += '<div class="latest-news flex">';
           html += '<img class="thumbnail" src="' + data.image_url + '">';
           html += '<div class="text">';
-          html += '<a href="' + data.f2f_url + '" target="blank">';
+          html += '<a class="ingLink" href="' + data.f2f_url + '" target="blank">';
           html += '<h2 class="headline">' + data.title + '</h2>';
           html += '<h4 class="byline"> by ' + data.publisher + ', <em>' + data.social_rank + '</em></h4>';
           html += '</a></div>';
           html += '</div>';
 
         }); // foreach
+        html += '<div class="content flex">Try typing in different ingredients for more results! </div>';
         $('#results').html(html);
 
       } // success function

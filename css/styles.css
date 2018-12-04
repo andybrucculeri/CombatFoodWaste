@@ -19,6 +19,7 @@
   grid-column: 1/7;
   grid-row: 0/2;
   padding-bottom: 80px;
+
   margin: 0px;
     background-image: url("../img/americans.jpg");
     background-position: center;
@@ -33,7 +34,7 @@
 h1{
   color:white;
   text-align: center;
-  background-color:black;
+  background-color:#b36200;
   vertical-align: middle;
   font-size: 80px;
   margin-top: 10%;
@@ -47,13 +48,23 @@ h1{
   grid-row: 2/3;
 }
 
+.contentLink{
+  text-decoration: none;
+  color: #b36200;
+}
+
 .sectionHead{
-  color:black;
+  color: white;
+  font-weight: bold;
   margin-bottom: 3px;
   padding-bottom: 3px;
   font-size: 40px;
   margin-top: 3%;
   font-family: times;
+  background-color:#ffa333;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-top: 5px;
 }
 
 .content{
@@ -71,12 +82,53 @@ h1{
   grid-row: 4/5;
 }
 
+@media only screen and (max-width: 600px) {
+
+  h1{
+    color:white;
+    text-align: center;
+    background-color:#b36200;
+    vertical-align: middle;
+    font-size: 33px;
+    margin-top: 25%;
+    padding: 6px;
+    padding-top: 10px;
+    font-family: times;
+  }
+
+  .sectionHead{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
+    font-size: 28px;
+    margin-top: 3%;
+    font-family: times;
+    background-color:#ffa333;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-top: 5px;
+  }
+
+  .indent{
+    text-indent: 20px;
+  }
+
+  #player{
+    grid-column: 2/6;
+  grid-row: 5/6;
+  width: 100%;
+  height: 250px!important;
+  min-height: 150px!important;
+  }
+}
+
 #player{
   grid-column: 2/6;
 grid-row: 5/6;
 width: 100%;
 height: 100%;
-min-height: 350px;
+min-height: 450px;
 }
 
 #donationUse{
@@ -99,24 +151,8 @@ grid-row: 8/9;
   height: 400px;
 }
 
-/*
-div.tau-chart__layout{
-  overflow: hidden;
-  height: 520px;
-}
 
-.tau-chart__legend{
-  display: inline-flex;
-
-}
-
-svg.tau-chart__legend__gradient {
-  width: 150px;
-  display: block;
-}
-*/
-
-a{
+.ingLink{
   text-decoration: none;
   color: black;
 }
