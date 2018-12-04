@@ -1,0 +1,26 @@
+[
+ {
+   "Type of Threat": "Not enough money",
+   "Major Threat": 55.7,
+   "Somewhat of a Threat": 33.1,
+   "Minor Threat": 8.8
+ },
+ {
+   "Type of Threat": "Not enough food supplies",
+   "Major Threat": 27.8,
+   "Somewhat of a Threat": 33.9,
+   "Minor Threat": 22.3
+ },
+ {
+   "Type of Threat": "Not enough paid staff",
+   "Major Threat": 17.1,
+   "Somewhat of a Threat": 22.2,
+   "Minor Threat": 19.5
+ },
+ {
+   "Type of Threat": "Not enough volunteers",
+   "Major Threat": 14.6,
+   "Somewhat of a Threat": 23.5,
+   "Minor Threat": 27.2
+ }
+]
