@@ -94,6 +94,28 @@ display:block;
   grid-column: 1/6;
 grid-row: 8/9;
 }
+
+#tauResults{
+  height: 400px;
+}
+
+/*
+div.tau-chart__layout{
+  overflow: hidden;
+  height: 520px;
+}
+
+.tau-chart__legend{
+  display: inline-flex;
+
+}
+
+svg.tau-chart__legend__gradient {
+  width: 150px;
+  display: block;
+}
+*/
+
 a{
   text-decoration: none;
   color: black;

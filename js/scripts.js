@@ -159,7 +159,7 @@ $(function(){
             legend: {
                 align: 'center',
                 verticalAlign: 'top',
-                y: 85,
+                y: 65,
                 layout: 'horizontal'
             },
             yAxis: {
@@ -187,5 +187,83 @@ $(function(){
     }]
 }
 }); // close highchart
+
+if ( $(window).width() > 739) {
+  var tauUrl = './donations.json';
+  var donations = '';
+
+
+  $.ajax({
+    type:'GET',
+    url: tauUrl,
+    data: donations,
+    async: true,
+    dataType:'json',
+    success:function(donations){
+      console.log('tau');
+      var chart = new Taucharts.Chart({
+        guide: {
+          x: {label:'Threat Level'},  // custom label for X axis
+          y: {label:'Percentage Agencies Reporting Challenges'},    // custom label for Y axis
+          padding: {b:40,l:40,t:10,r:10}   // chart paddings
+        },
+              data: donations,
+              type: 'bar',
+              x: 'Threat Level',
+              y: 'Percentage Threatened',
+              color:'Type of Threat',
+              plugins: [
+                      Taucharts.api.plugins.get('tooltip')({
+                        fields:['Type of Threat','Threat Level', 'Percentage Threatened']
+                      }),
+                      Taucharts.api.plugins.get('legend')({
+                        position: 'right',
+                      }),
+              ]
+          }); // close tauchart
+  chart.renderTo('#tauResults');
+
+        } //close success
+      }); //close ajax
+}
+else {
+  var tauUrl = './donations.json';
+  var donations = '';
+
+
+  $.ajax({
+    type:'GET',
+    url: tauUrl,
+    data: donations,
+    async: true,
+    dataType:'json',
+    success:function(donations){
+      console.log('tau');
+      var chart = new Taucharts.Chart({
+        guide: {
+          x: {label:'Threat Level'},  // custom label for X axis
+          y: {label:'Percentage Agencies Reporting Challenges'},    // custom label for Y axis
+          padding: {b:40,l:40,t:10,r:10}   // chart paddings
+        },
+              data: donations,
+              type: 'bar',
+              x: 'Threat Level',
+              y: 'Percentage Threatened',
+              color:'Type of Threat',
+              plugins: [
+                      Taucharts.api.plugins.get('tooltip')({
+                        fields:['Type of Threat','Threat Level', 'Percentage Threatened']
+                      }),
+                      Taucharts.api.plugins.get('legend')({
+                        position: 'bottom',
+                      }),
+              ]
+          }); // close tauchart
+  chart.renderTo('#tauResults');
+          window.dispatchEvent(new Event('resize'));
+        } //close success
+      }); //close ajax
+}
+
 
 }); // close wrapper
