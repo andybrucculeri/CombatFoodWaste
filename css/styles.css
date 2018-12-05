@@ -1,99 +1,53 @@
 @supports (grid-area:auto) {
-.site{
-  display: grid;
-  grid-template-columns: 5% 1fr 1fr 1fr 1fr 5%;
-  grid-template-rows: minmax(250px, 900px), 500px 400px 450px 450px 450px 900px 100px 100px 100px;
-  background-color: white;
-
-}
-
+  .site{
+    display: grid;
+    grid-template-columns: 5% 1fr 1fr 1fr 1fr 5%;
+    grid-template-rows: minmax(250px, 900px), 500px 400px 450px 450px 450px 900px 100px 100px 100px;
+    background-color: white;
+  }
 
 
-.flex{
-  display:flex;
-  align-items: center;
-  justify-content: center;
-}
+  .flex{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-#heading{
-  grid-column: 1/7;
-  grid-row: 0/2;
-  padding-bottom: 80px;
-
-  margin: 0px;
+  #heading{
+    grid-column: 1/7;
+    grid-row: 0/2;
+    padding-bottom: 80px;
+    margin: 0px;
     background-image: url("../img/americans.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+  }
 
-.indent{
-  text-indent: 50px;
-}
-
-h1{
-  color:white;
-  text-align: center;
-  background-color:#b36200;
-  vertical-align: middle;
-  font-size: 80px;
-  margin-top: 10%;
-  padding: 3px;
-  padding-top: 5px;
-  font-family: times;
-}
-
-#opening{
-  grid-column: 2/6;
-  grid-row: 2/3;
-}
-
-.contentLink{
-  text-decoration: none;
-  color: #b36200;
-}
-
-.sectionHead{
-  color: white;
-  font-weight: bold;
-  margin-bottom: 3px;
-  padding-bottom: 3px;
-  font-size: 40px;
-  margin-top: 3%;
-  font-family: times;
-  background-color:#ffa333;
-  border-radius: 10px;
-  padding-left: 30px;
-  padding-top: 5px;
-}
-
-.content{
-  font-family: 'helvetica Neue';
-}
-
-#container{
-  grid-column: 1/6;
-  grid-row: 3/4;
-  padding-bottom: 10px;
-}
-
-#education{
-  grid-column: 2/6;
-  grid-row: 4/5;
-}
-
-@media only screen and (max-width: 600px) {
+  .indent{
+    text-indent: 50px;
+  }
 
   h1{
     color:white;
     text-align: center;
-    background-color:#b36200;
+    background-color:#ff6122;
     vertical-align: middle;
-    font-size: 33px;
-    margin-top: 25%;
-    padding: 6px;
-    padding-top: 10px;
+    font-size: 80px;
+    margin-top: 10%;
+    padding: 3px;
+    padding-top: 5px;
     font-family: times;
+  }
+
+  #opening{
+    grid-column: 2/6;
+    grid-row: 2/3;
+  }
+
+  .contentLink{
+    text-decoration: none;
+    color: #03665B;
   }
 
   .sectionHead{
@@ -101,82 +55,240 @@ h1{
     font-weight: bold;
     margin-bottom: 3px;
     padding-bottom: 3px;
-    font-size: 28px;
+    font-size: 40px;
     margin-top: 3%;
     font-family: times;
-    background-color:#ffa333;
+    background-color: #ff6122;
     border-radius: 10px;
     padding-left: 30px;
     padding-top: 5px;
   }
 
-  .indent{
-    text-indent: 20px;
+  .content{
+    font-family: 'helvetica Neue';
+  }
+
+  #container{
+    grid-column: 1/6;
+    grid-row: 3/4;
+    padding-bottom: 10px;
+  }
+
+  #education{
+    grid-column: 2/6;
+    grid-row: 4/5;
   }
 
   #player{
     grid-column: 2/6;
-  grid-row: 5/6;
-  width: 100%;
-  height: 250px!important;
-  min-height: 150px!important;
+    grid-row: 5/6;
+    width: 100%;
+    height: 100%;
+    min-height: 450px;
   }
-}
 
-#player{
-  grid-column: 2/6;
-grid-row: 5/6;
-width: 100%;
-height: 100%;
-min-height: 450px;
-}
+  #donationUse{
+    grid-column: 2/6;
+    grid-row: 6/7;
+  }
 
-#donationUse{
-  grid-column: 2/6;
-grid-row: 6/7;
-}
+  #seek{
+    grid-column: 3/5;
+    grid-row: 7/8;
+    display:block;
+  }
 
-#seek{
-  grid-column: 3/5;
-grid-row: 7/8;
-display:block;
-}
+  #results{
+    grid-column: 1/6;
+    grid-row: 8/9;
+  }
 
-#results{
-  grid-column: 1/6;
-grid-row: 8/9;
-}
-
-#tauResults{
-  height: 400px;
-}
+  #tauResults{
+    height: 400px;
+  }
 
 
-.ingLink{
-  text-decoration: none;
-  color: black;
-}
+  .ingLink{
+    text-decoration: none;
+    color: black;
+    padding-left: 20px;
+    font-family: times;
+  }
 
-.latest-news{
-  border: 1px solid grey;
-  padding: 10px;
-  margin: 10px;
-  box-shadow: 2px 2px 5px #cccccc;
-}
+  .recipe-ideas{
+    border: 1px solid #ffb091;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 2px 2px 5px #cccccc;
+    background-color: #ffd4c4;
+    border-radius: 10px;
+  }
 
-.thumbnail{
-  flex-basis: 20%;
-  max-width: 20%;
-  height: auto;
-  margin-right: 10px;
-}
+  .recipe-name{
+    color:#c03600;
+  }
 
-.text{
-  flex-basis: 80%
-}
+  .thumbnail{
+    flex-basis: 20%;
+    max-width: 20%;
+    height: auto;
+    margin-right: 10px;
+  }
 
-#submit{
-  margin: 10px;
-}
+  .publisher{
+    color:#c03600;
+  }
 
+  .text{
+    flex-basis: 80%
+  }
+
+  input{
+    width: 100%;
+    height: 35px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+  }
+
+  input:focus {
+    border: 3px solid #555;
+  }
+
+  #submit{
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #07D4BC;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  #submit span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  #submit span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  #submit:hover span {
+    padding-right: 25px;
+  }
+
+  #submit:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  #ingredient-search1{
+    padding: 3px;
+  }
+
+  #ingredient-search2{
+    padding: 3px;
+  }
+  @media only screen and (max-width: 600px) {
+
+    h1{
+      color:white;
+      text-align: center;
+      background-color:#ff6122;
+      vertical-align: middle;
+      font-size: 33px;
+      margin-top: 25%;
+      padding: 6px;
+      padding-top: 10px;
+      font-family: times;
+    }
+
+    .sectionHead{
+      color: white;
+      font-weight: bold;
+      margin-bottom: 3px;
+      padding-bottom: 3px;
+      font-size: 28px;
+      margin-top: 3%;
+      font-family: times;
+      background-color:#ff6122;
+      border-radius: 10px;
+      padding-left: 30px;
+      padding-top: 5px;
+    }
+
+    .indent{
+      text-indent: 20px!important;
+    }
+
+    #player{
+      grid-column: 2/6;
+      grid-row: 5/6;
+      width: 100%;
+      height: 250px!important;
+      min-height: 150px!important;
+    }
+
+    #seek{
+      grid-column: 2/5!important;
+      grid-row: 7/8;
+      display:block;
+    }
+
+    .ingLink{
+      text-decoration: none;
+      color: black;
+      margin-left: 10px;
+      font-family: times;
+    }
+
+    .recipe-ideas{
+      border: 1px solid #ffb091;
+      padding: 10px;
+      margin: 20px;
+      box-shadow: 2px 2px 5px #cccccc;
+      background-color: #ffd4c4;
+      border-radius: 10px;
+    }
+
+    .recipe-name{
+      color:#c03600;
+      font-size: 16px;
+    }
+
+    .thumbnail{
+      flex-basis: 50%!important;
+      max-width: 100%!important;
+      height: auto;
+      margin-right: 5px;
+    }
+
+    .publisher{
+      color:#c03600;
+      font-size: 12px;
+    }
+
+    .text{
+      flex-basis: 50%!important;
+    }
+  }
 }

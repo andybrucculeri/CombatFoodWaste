@@ -53,12 +53,12 @@ $(function(){
         console.log(foody.map(data => data.title));
         foody.forEach(function(data){
           console.log(data.title);
-          html += '<div class="latest-news flex">';
+          html += '<div class="recipe-ideas flex">';
           html += '<img class="thumbnail" src="' + data.image_url + '">';
           html += '<div class="text">';
           html += '<a class="ingLink" href="' + data.f2f_url + '" target="blank">';
-          html += '<h2 class="headline">' + data.title + '</h2>';
-          html += '<h4 class="byline"> by ' + data.publisher + ', <em>' + data.social_rank + '</em></h4>';
+          html += '<h2 class="recipe-name">' + data.title + '</h2>';
+          html += '<h4 class="publisher"> by ' + data.publisher + '</h4>';
           html += '</a></div>';
           html += '</div>';
 
@@ -74,195 +74,195 @@ $(function(){
 
 
   Highcharts.chart('container', {
-  chart: {
-    style: {
-        fontFamily: 'times'
-    },
-    type: 'column'
-  },
-  title: {
-    text: 'Weight Percentages of Food Loss and Waste (in percentage of what enters each step)'
-  },
-  xAxis: {
-    categories: ['Agricultural Production', 'Postharvest handling and storage', 'Processing and packaging', 'Distribution', 'Consumption']
-  },
-  yAxis: {
-    min: 0,
-    ceiling: 160,
-    title: {
-      text: 'Percentage Waste'
-    },
-    stackLabels: {
-      enabled: true,
+    chart: {
       style: {
-        fontWeight: 'bold',
-        fontFamily: 'times',
-        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-      }
-    }
-  },
-  legend: {
-    align: 'center',
-    x: -10,
-    verticalAlign: 'top',
-    y: 25,
-    floating: true,
-    backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-    borderColor: '#CCC',
-    borderWidth: 1,
-    shadow: false
-  },
-  tooltip: {
-    headerFormat: '<b>{point.x}</b><br/>',
-    pointFormat: '{series.name}: {point.y} percent <br/>Total Waste: {point.stackTotal} percent'
-  },
-  plotOptions: {
-    column: {
-      stacking: 'normal',
-      dataLabels: {
+        fontFamily: 'times'
+      },
+      type: 'column'
+    },
+    title: {
+      text: 'Weight Percentages of Food Loss and Waste (in percentage of what enters each step)'
+    },
+    xAxis: {
+      categories: ['Agricultural Production', 'Postharvest handling and storage', 'Processing and packaging', 'Distribution', 'Consumption']
+    },
+    yAxis: {
+      min: 0,
+      ceiling: 160,
+      title: {
+        text: 'Percentage Waste'
+      },
+      stackLabels: {
         enabled: true,
-        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+        style: {
+          fontWeight: 'bold',
+          fontFamily: 'times',
+          color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+        }
       }
-    }
-  },
-  series: [{
-    name: 'Cereals',
-    data: [2, 2, 5.5, 2, 27]
-  }, {
-    name: 'Roots and tubers',
-    data: [20, 10, 15, 7, 30]
-  },
-  {
-    name: 'Oilseeds and pulses',
-    data: [12, 0, 5, 1, 4]
-  },
-  {
-    name: 'Fruits and vegetables',
-    data: [20, 4, 2, 12, 28]
-  },{
-    name: 'Meat',
-    data: [3.5, 1, 5, 4, 11]
-  }, {
-    name: 'Fish and seafood',
-    data: [12, .5, 6, 9, 33]
-  },  {
-    name: 'Milk',
-    data: [3.5, 0.5, 1.2, 0.5, 15]
-  }],
-  responsive: {
-    rules: [{
+    },
+    legend: {
+      align: 'center',
+      x: -10,
+      verticalAlign: 'top',
+      y: 25,
+      floating: true,
+      backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+      borderColor: '#CCC',
+      borderWidth: 1,
+      shadow: false
+    },
+    tooltip: {
+      headerFormat: '<b>{point.x}</b><br/>',
+      pointFormat: '{series.name}: {point.y} percent <br/>Total Waste: {point.stackTotal} percent'
+    },
+    plotOptions: {
+      column: {
+        stacking: 'normal',
+        dataLabels: {
+          enabled: true,
+          color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+        }
+      }
+    },
+    series: [{
+      name: 'Cereals',
+      data: [2, 2, 5.5, 2, 27]
+    }, {
+      name: 'Roots and tubers',
+      data: [20, 10, 15, 7, 30]
+    },
+    {
+      name: 'Oilseeds and pulses',
+      data: [12, 0, 5, 1, 4]
+    },
+    {
+      name: 'Fruits and vegetables',
+      data: [20, 4, 2, 12, 28]
+    },{
+      name: 'Meat',
+      data: [3.5, 1, 5, 4, 11]
+    }, {
+      name: 'Fish and seafood',
+      data: [12, .5, 6, 9, 33]
+    },  {
+      name: 'Milk',
+      data: [3.5, 0.5, 1.2, 0.5, 15]
+    }],
+    responsive: {
+      rules: [{
         condition: {
-            maxWidth: 500
+          maxWidth: 500
         },
         chartOptions: {
-            legend: {
-                align: 'center',
-                verticalAlign: 'top',
-                y: 65,
-                layout: 'horizontal'
+          legend: {
+            align: 'center',
+            verticalAlign: 'top',
+            y: 65,
+            layout: 'horizontal'
+          },
+          yAxis: {
+            labels: {
+              align: 'left',
+              x: 0,
+              y: -5
             },
-            yAxis: {
-                labels: {
-                    align: 'left',
-                    x: 0,
-                    y: -5
-                },
-                title: {
-                    text: null
-                }
-            },
-            xAxis: {
-              labels: {
-                autoRotation: [-90]
-              }
-            },
-            subtitle: {
-                text: null
-            },
-            credits: {
-                enabled: false
+            title: {
+              text: null
             }
+          },
+          xAxis: {
+            labels: {
+              autoRotation: [-90]
+            }
+          },
+          subtitle: {
+            text: null
+          },
+          credits: {
+            enabled: false
+          }
         }
-    }]
-}
-}); // close highchart
+      }]
+    }
+  }); // close highchart
 
-if ( $(window).width() > 739) {
-  var tauUrl = './donations.json';
-  var donations = '';
-
-
-  $.ajax({
-    type:'GET',
-    url: tauUrl,
-    data: donations,
-    async: true,
-    dataType:'json',
-    success:function(donations){
-      console.log('tau');
-      var chart = new Taucharts.Chart({
-        guide: {
-          x: {label:'Threat Level'},  // custom label for X axis
-          y: {label:'Percentage Agencies Reporting Challenges'},    // custom label for Y axis
-          padding: {b:40,l:40,t:10,r:10}   // chart paddings
-        },
-              data: donations,
-              type: 'bar',
-              x: 'Threat Level',
-              y: 'Percentage Threatened',
-              color:'Type of Threat',
-              plugins: [
-                      Taucharts.api.plugins.get('tooltip')({
-                        fields:['Type of Threat','Threat Level', 'Percentage Threatened']
-                      }),
-                      Taucharts.api.plugins.get('legend')({
-                        position: 'right',
-                      }),
-              ]
-          }); // close tauchart
-  chart.renderTo('#tauResults');
-
-        } //close success
-      }); //close ajax
-}
-else {
-  var tauUrl = './donations.json';
-  var donations = '';
+  if ( $(window).width() > 739) {
+    var tauUrl = './donations.json';
+    var donations = '';
 
 
-  $.ajax({
-    type:'GET',
-    url: tauUrl,
-    data: donations,
-    async: true,
-    dataType:'json',
-    success:function(donations){
-      console.log('tau');
-      var chart = new Taucharts.Chart({
-        guide: {
-          x: {label:'Threat Level'},  // custom label for X axis
-          y: {label:'Percentage Agencies Reporting Challenges'},    // custom label for Y axis
-          padding: {b:40,l:40,t:10,r:10}   // chart paddings
-        },
-              data: donations,
-              type: 'bar',
-              x: 'Threat Level',
-              y: 'Percentage Threatened',
-              color:'Type of Threat',
-              plugins: [
-                      Taucharts.api.plugins.get('tooltip')({
-                        fields:['Type of Threat','Threat Level', 'Percentage Threatened']
-                      }),
-                      Taucharts.api.plugins.get('legend')({
-                        position: 'bottom',
-                      }),
-              ]
-          }); // close tauchart
-  chart.renderTo('#tauResults');
-          window.dispatchEvent(new Event('resize'));
-        } //close success
-      }); //close ajax
-}
+    $.ajax({
+      type:'GET',
+      url: tauUrl,
+      data: donations,
+      async: true,
+      dataType:'json',
+      success:function(donations){
+        console.log('tau');
+        var chart = new Taucharts.Chart({
+          guide: {
+            x: {label:'Threat Level'},  // custom label for X axis
+            y: {label:'Percentage Agencies Reporting Challenges'},    // custom label for Y axis
+            padding: {b:40,l:40,t:10,r:10}   // chart paddings
+          },
+          data: donations,
+          type: 'bar',
+          x: 'Threat Level',
+          y: 'Percentage Threatened',
+          color:'Type of Threat',
+          plugins: [
+            Taucharts.api.plugins.get('tooltip')({
+              fields:['Type of Threat','Threat Level', 'Percentage Threatened']
+            }),
+            Taucharts.api.plugins.get('legend')({
+              position: 'right',
+            }),
+          ]
+        }); // close tauchart
+        chart.renderTo('#tauResults');
+
+      } //close success
+    }); //close ajax
+  }
+  else {
+    var tauUrl = './donations.json';
+    var donations = '';
+
+
+    $.ajax({
+      type:'GET',
+      url: tauUrl,
+      data: donations,
+      async: true,
+      dataType:'json',
+      success:function(donations){
+        console.log('tau');
+        var chart = new Taucharts.Chart({
+          guide: {
+            x: {label:'Threat Level'},  // custom label for X axis
+            y: {label:'Percentage Agencies Reporting Challenges'},    // custom label for Y axis
+            padding: {b:40,l:40,t:10,r:10}   // chart paddings
+          },
+          data: donations,
+          type: 'bar',
+          x: 'Threat Level',
+          y: 'Percentage Threatened',
+          color:'Type of Threat',
+          plugins: [
+            Taucharts.api.plugins.get('tooltip')({
+              fields:['Type of Threat','Threat Level', 'Percentage Threatened']
+            }),
+            Taucharts.api.plugins.get('legend')({
+              position: 'bottom',
+            }),
+          ]
+        }); // close tauchart
+        chart.renderTo('#tauResults');
+        window.dispatchEvent(new Event('resize'));
+      } //close success
+    }); //close ajax
+  }
 
 
 }); // close wrapper
