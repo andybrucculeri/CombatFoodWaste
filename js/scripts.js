@@ -275,7 +275,7 @@ if ( $(window).width() > 739) {
         color:'Type of Threat',
         plugins: [
           Taucharts.api.plugins.get('tooltip')({
-            fields:['Type of Threat','Threat Level', 'Percentage Threatened']
+            fields:['Type of Threat','Threat Level', 'Percentage of Agencies Threatened']
           }),
           Taucharts.api.plugins.get('legend')({
             position: 'right',
@@ -313,7 +313,7 @@ else {
         color:'Type of Threat',
         plugins: [
           Taucharts.api.plugins.get('tooltip')({
-            fields:['Type of Threat','Threat Level', 'Percentage Threatened']
+            fields:['Type of Threat','Threat Level', 'Percentage of Agencies Threatened']
           }),
           Taucharts.api.plugins.get('legend')({
             position: 'left',
