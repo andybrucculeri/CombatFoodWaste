@@ -2,16 +2,22 @@
 <html>
 <head>
   <title>Combat Food Waste</title>
+  <!-- my CSS  -->
   <link rel="stylesheet" href="css/styles.css" type="text/css" />
   <meta charset="utf-8"/>
+  <meta name="keywords" content="andrea, brucculeri, food, waste, wasted, lost, bank, pantry, agency, reduce, reuse, recycle, landfill, education, donation, donate, donations, doner, need, excess, combat, combatting, canned, goods, good, vegetables, fruits, statistics, chart, charts, data, recipe, ingedients, search, documentary, infromation, help, find, eat, eating, hungry, insecure, dependant, rely, feed, meal, meals">
+  <meta name="description" content="Andrea Brucculeri's data-based article on how to combat food waste.">
+  <!-- taucharts css  -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/taucharts@2/dist/taucharts.min.css">
 </head>
+<!-- begin site content  -->
 <body class="site">
+  <!-- Combat Food Waste heading  -->
   <div id="heading">
     <h1>Combat Food Waste</h1>
   </div>
+  <!-- First chunk of text  -->
   <div id="opening">
-
     <p class="sectionHead">
       It starts with you.
     </p>
@@ -25,11 +31,14 @@
       The following chart was created using data from the <a class="contentLink" href="http://www.fao.org/docrep/014/mb060e/mb060e.pdf" target="_blank">2011 Food and Agriculture Organization of the United Nations’ Global Food Losses and Food Waste report.</a> It shows the estimated waste percentages for each commodity group in each step of the food supply chain for North America and Oceania. The percentages are based on the amount of food lost or wasted that enters each step of the process.
     </p>
   </div>
-  <div id="container" ></div>
+  <!-- Highcharts on food waste data  -->
+  <div id="foodWasteChart" ></div>
+  <!-- Second chunk of text -->
   <div id="education">
     <p class="content indent">
       The “Consumption” bar represents food losses in the home or businesses of the consumer, including restaurants and caterers. This stage of the food supply chain accounts for much of the overall food waste, and it is the step that everyday consumers have the most control over. This is why combatting food waste starts with you — the consumer. Each year, an estimated<a class="contentLink" href="https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/advancing-sustainable-materials-management-0" target="_blank"> 218.9 pounds of food is wasted per person.</a> Making small lifestyle changes can decrease these numbers as well as feed hungry Americans and keep the planet clean.
     </p>
+    <!-- start education content  -->
     <p class="sectionHead">
       Education
     </p>
@@ -40,45 +49,52 @@
       A quick and entertaining way to get up to speed is to watch one of the many videos created to educate people about food waste. After <a class="contentLink" href="https://www.youtube.com/watch?v=IoCVrkcaH6Q" target="_blank">the Food and Agriculture Organization</a> estimated that one-third of the food produced for consumption is lost or wasted,  <a class="contentLink" href="https://news.nationalgeographic.com/news/2014/10/141013-food-waste-national-security-environment-science-ngfood/" target="_blank">National Geographic</a> took to tackling the issue. They created a <a class="contentLink" href="https://www.youtube.com/results?search_query=food+waste+national+geographic" target="_blank">series of videos about eating ugly produce,</a> hoping to change the standards on which fruits and vegetables make it to our plates. <a class="contentLink" href="http://www.wastedfilm.com/" target="_blank">“Wasted! The Story of Food Waste”</a> is a 90-minute film produced by American chef Anthony Bourdain. This 2017 documentary  <a class="contentLink" href="https://www.rottentomatoes.com/m/wasted_the_story_of_food_waste/" target="_blank"> received 100% on Rotten Tomatoes </a> and does a great job encompassing food waste problems and solutions. The trailer alone (provided below) is worth the watch, both informative and inspiring.
     </p>
   </div>
+  <!-- youtube API video  -->
   <div id="player"></div>
+  <!-- Third chunk of text content  -->
   <div id="donationUse">
+    <!-- start Donation text  -->
     <p class="sectionHead">
       Donation
     </p>
     <p class="content indent">
       Much of the food that is lost or wasted is safe to eat, and with a little extra effort, food can go to people in need instead of landfills. The chart below was created from<a class="contentLink" href="http://help.feedingamerica.org/HungerInAmerica/hunger-in-america-2014-full-report.pdf?s_src=W18CORGSC&s_referrer=google&s_subsrc=https%3A%2F%2Fwww.feedingamerica.org%2Fresearch&_ga=2.266097487.1130627213.1543892839-1974116627.1543522312" target="_blank"> Feeding America’s “Hunger in America 2014” study,</a> which revealed that 46.5 million Americans rely on food banks. That is <a class="contentLink" href="https://www.usatoday.com/story/news/nation/2014/08/17/hunger-study-food/14195585/" target="_blank"> one in seven Americans. </a> Yet, every year, the existence of these food banks is threatened by lack of donations. Over 7,000 struggling agencies were asked what issues and deficiencies were challenging their ability to continue to provide services. The results are displayed below, organized by the type and level (major, somewhat, or minor) of threat.
     </p>
+    <!-- Taucharts data on donation agencies using ajax call to json data  -->
     <div id="tauResults"></div>
     <p class="content indent">
-Despite popular belief, canned foods such as beans, chicken, fish, and vegetables are not the only items that food agencies need and accept. Applesauce, cooking oils, granola bars, herbs, spices, nuts, pasta, rice, peanut butter, and cereal are just a few examples of the many uncanned items that are commonly needed. <a class="contentLink" href="https://www.feedingamerica.org/hunger-blog/three-items-hungry-families-need" target="_blank"> Feeding America</a> especially requests dairy products, fruits, vegetables, and lean proteins. It is easy to find local donation centers using Google searches and websites such as <a class="contentLink" href="https://www.foodpantries.org/" target="_blank"> FoodPantries.org.</a> Donating can be made even easier through various <a class="contentLink" href="http://www.foodrunners.org/donate-food/" target="_blank"> donation transportation services</a> which pick up donations from numerous neighborhood locations and take them to food banks free of charge.
+      Despite popular belief, canned foods such as beans, chicken, fish, and vegetables are not the only items that food agencies need and accept. Applesauce, cooking oils, granola bars, herbs, spices, nuts, pasta, rice, peanut butter, and cereal are just a few examples of the many uncanned items that are commonly needed. <a class="contentLink" href="https://www.feedingamerica.org/hunger-blog/three-items-hungry-families-need" target="_blank"> Feeding America</a> especially requests dairy products, fruits, vegetables, and lean proteins. It is easy to find local donation centers using Google searches and websites such as <a class="contentLink" href="https://www.foodpantries.org/" target="_blank"> FoodPantries.org.</a> Donating can be made even easier through various <a class="contentLink" href="http://www.foodrunners.org/donate-food/" target="_blank"> donation transportation services</a> which pick up donations from numerous neighborhood locations and take them to food banks free of charge.
     </p>
+    <!-- start Use text  -->
     <p class="sectionHead">
       Utilization
     </p>
     <p class="content indent">
-This last way to prevent food waste is the easiest one yet — eat the food. Remember that buying in bulk only saves money if all the food is actually used, so often it is cheaper to buy smaller quantities of food for more deliberate purposes. Using better storage and preparation techniques can keep food fresher longer and therefore increase the change that it is used before going bad. There are </a> Donating can be made even easier through various <a class="contentLink" href="https://www.kitchenstewardship.com/real-food-stockpile-preservation-and-storage-techniques/" target="_blank"> abundant resources</a> abundant resources on how to can, dehydrate, and freeze foods to maximize their lifespan and make the absolute most of every grocery trip. The right storage can make perishable foods last many times longer than they would otherwise. </a> Donating can be made even easier through various <a class="contentLink" href="https://www.home-storage-solutions-101.com/pantry-list.html" target="_blank"> Home Storage Solutions</a> offers printer-friendly pages that outline the storage time of various common household foods, including freezer and refrigerator storage times. They even have a pantry inventory form to help people keep track of when they buy things so they can be sure to use the food before it expires. Lifestyles changes such as these may be small, but they do make a big difference. Combatting food waste starts with you!
+      This last way to prevent food waste is the easiest one yet — eat the food. Remember that buying in bulk only saves money if all the food is actually used, so often it is cheaper to buy smaller quantities of food for more deliberate purposes. Using better storage and preparation techniques can keep food fresher longer and therefore increase the change that it is used before going bad. There are </a> Donating can be made even easier through various <a class="contentLink" href="https://www.kitchenstewardship.com/real-food-stockpile-preservation-and-storage-techniques/" target="_blank"> abundant resources</a> abundant resources on how to can, dehydrate, and freeze foods to maximize their lifespan and make the absolute most of every grocery trip. The right storage can make perishable foods last many times longer than they would otherwise. </a> Donating can be made even easier through various <a class="contentLink" href="https://www.home-storage-solutions-101.com/pantry-list.html" target="_blank"> Home Storage Solutions</a> offers printer-friendly pages that outline the storage time of various common household foods, including freezer and refrigerator storage times. They even have a pantry inventory form to help people keep track of when they buy things so they can be sure to use the food before it expires. Lifestyles changes such as these may be small, but they do make a big difference. Combatting food waste starts with you!
     </p>
     <p class="content indent">
-The tool below can be used to help you make the most of the ingredients you have, saving a trip to the grocery. Type in two ingredients that are expiring soon or that you’d like to use and see what kind of recipes use those items.
+      The tool below can be used to help you make the most of the ingredients you have, saving a trip to the grocery. Type in two ingredients that are expiring soon or that you’d like to use and see what kind of recipes use those items.
     </p>
   </div>
+  <!-- Search for ingredients interactive element  -->
   <div id="seek">
     <input id="ingredient-search1" placeholder="Ingredient One" value=""></input>
     <input id="ingredient-search2" placeholder="Ingredient Two" value=""></input>
-  <!--  <button id="submit">Submit</button> -->
-<button id="submit" style="vertical-align:middle"><span>Submit </span></button>
-
+    <!--  submit button -->
+    <button id="submit" style="vertical-align:middle"><span>Submit </span></button>
   </div>
-
+  <!-- results for search  -->
   <div id="results"></div>
-
-
+  <!-- jquery  -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+  <!-- taucharts -->
   <script src="https://cdn.jsdelivr.net/npm/d3@4.13.0/build/d3.min.js" charset="utf-8"></script>
   <script src="https://cdn.jsdelivr.net/npm/taucharts@2/dist/taucharts.min.js" type="text/javascript"></script>
+  <!-- highcharts  -->
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/exporting.js"></script>
   <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <!-- my config.js and scripts  -->
   <script type='text/javascript' src='config.js'></script>
   <script src="js/scripts.js"></script>
 </body>

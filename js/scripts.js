@@ -15,7 +15,7 @@ function onYouTubeIframeAPIReady() {
 // jq wrapper
 $(function(){
   console.log('scripts loaded');
-
+  //variables for button, search boxes and Food2Fork API call for search results
   var myKey = config.MY_KEY;
   var foodToken = config.appToken;
   var secretToken = config.secret;
@@ -24,7 +24,7 @@ $(function(){
   var userIng1 = '';
   var userIng2 = '';
   var btn = document.getElementById('submit');
-
+  //button
   btn.addEventListener('click', function(){
     userIng1 = userFood1.value;
     userIng2 = userFood2.value;
@@ -41,7 +41,7 @@ $(function(){
     var data= [];
     var html= '';
     var i='';
-
+    // ajax call to Food2Fork API for interactive element: ingredients search results
     $.ajax({
       type:'GET',
       url: url,
@@ -72,8 +72,8 @@ $(function(){
 
   }); // close button
 
-
-  Highcharts.chart('container', {
+  // highchart for food waste data
+  Highcharts.chart('foodWasteChart', {
     chart: {
       style: {
         fontFamily: 'times'
@@ -158,7 +158,7 @@ $(function(){
           legend: {
             align: 'center',
             verticalAlign: 'top',
-            y: 65,
+            y: 75,
             layout: 'horizontal'
           },
           yAxis: {
@@ -186,12 +186,12 @@ $(function(){
       }]
     }
   }); // close highchart
-
+  // taucharts making ajax call to json data to make chart on donation centers
   if ( $(window).width() > 739) {
     var tauUrl = './donations.json';
     var donations = '';
 
-
+    // ttaucharts for big screens
     $.ajax({
       type:'GET',
       url: tauUrl,
@@ -229,7 +229,7 @@ $(function(){
     var tauUrl = './donations.json';
     var donations = '';
 
-
+    // taucharts for small screens
     $.ajax({
       type:'GET',
       url: tauUrl,
@@ -254,7 +254,8 @@ $(function(){
               fields:['Type of Threat','Threat Level', 'Percentage Threatened']
             }),
             Taucharts.api.plugins.get('legend')({
-              position: 'bottom',
+              position: 'left',
+              width: '20',
             }),
           ]
         }); // close tauchart
@@ -263,6 +264,4 @@ $(function(){
       } //close success
     }); //close ajax
   }
-
-
 }); // close wrapper
