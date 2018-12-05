@@ -1,62 +1,62 @@
 [
  {
    "Type of Threat": "Not enough money",
-   "Percentage Threatened": 55.7,
+   "Percentage of Agencies Threatened": 55.7,
    "Threat Level": "Major Threat"
  },
  {
    "Type of Threat": "Not enough money",
-   "Percentage Threatened": 33.1,
+   "Percentage of Agencies Threatened": 33.1,
    "Threat Level": "Somewhat of a Threat"
  },
  {
    "Type of Threat": "Not enough money",
-   "Percentage Threatened": 8.8,
+   "Percentage of Agencies Threatened": 8.8,
    "Threat Level": "Minor Threat"
  },
  {
    "Type of Threat": "Not enough food supplies",
-   "Percentage Threatened": 27.8,
+   "Percentage of Agencies Threatened": 27.8,
    "Threat Level": "Major Threat"
  },
  {
    "Type of Threat": "Not enough food supplies",
-   "Percentage Threatened": 33.9,
+   "Percentage of Agencies Threatened": 33.9,
    "Threat Level": "Somewhat of a Threat"
  },
  {
    "Type of Threat": "Not enough food supplies",
-   "Percentage Threatened": 22.3,
+   "Percentage of Agencies Threatened": 22.3,
    "Threat Level": "Minor Threat"
  },
  {
    "Type of Threat": "Not enough paid staff",
-   "Percentage Threatened": 17.1,
+   "Percentage of Agencies Threatened": 17.1,
    "Threat Level": "Major Threat"
  },
  {
    "Type of Threat": "Not enough paid staff",
-   "Percentage Threatened": 22.2,
+   "Percentage of Agencies Threatened": 22.2,
    "Threat Level": "Somewhat of a Threat"
  },
  {
    "Type of Threat": "Not enough paid staff",
-   "Percentage Threatened": 19.5,
+   "Percentage of Agencies Threatened": 19.5,
    "Threat Level": "Minor Threat"
  },
  {
    "Type of Threat": "Not enough volunteers",
-   "Percentage Threatenedt": 14.6,
+   "Percentage of Agencies Threatenedt": 14.6,
    "Threat Level": "Major Threat"
  },
  {
    "Type of Threat": "Not enough volunteers",
-   "Percentage Threatened": 23.5,
+   "Percentage of Agencies Threatened": 23.5,
    "Threat Level": "Somewhat of a Threat"
  },
  {
    "Type of Threat": "Not enough volunteers",
-   "Percentage Threatened": 27.2,
+   "Percentage of Agencies Threatened": 27.2,
    "Threat Level": "Minor Threat"
  }
 ]

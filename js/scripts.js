@@ -72,196 +72,258 @@ $(function(){
 
   }); // close button
 
-  // highchart for food waste data
-  Highcharts.chart('foodWasteChart', {
-    chart: {
-      style: {
-        fontFamily: 'times'
-      },
-      type: 'column'
-    },
-    title: {
-      text: 'Weight Percentages of Food Loss and Waste (in percentage of what enters each step)'
-    },
-    xAxis: {
-      categories: ['Agricultural Production', 'Postharvest handling and storage', 'Processing and packaging', 'Distribution', 'Consumption']
-    },
-    yAxis: {
-      min: 0,
-      ceiling: 160,
-      title: {
-        text: 'Percentage Waste'
-      },
-      stackLabels: {
-        enabled: true,
-        style: {
-          fontWeight: 'bold',
-          fontFamily: 'times',
-          color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
-        }
-      }
-    },
-    legend: {
-      align: 'center',
-      x: -10,
-      verticalAlign: 'top',
-      y: 25,
-      floating: true,
-      backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
-      borderColor: '#CCC',
-      borderWidth: 1,
-      shadow: false
-    },
-    tooltip: {
-      headerFormat: '<b>{point.x}</b><br/>',
-      pointFormat: '{series.name}: {point.y} percent <br/>Total Waste: {point.stackTotal} percent'
-    },
-    plotOptions: {
-      column: {
-        stacking: 'normal',
-        dataLabels: {
-          enabled: true,
-          color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
-        }
-      }
-    },
-    series: [{
-      name: 'Cereals',
-      data: [2, 2, 5.5, 2, 27]
+  // charts.js chart on food waste
+
+  var canvas = document.getElementById("barChart");
+  var ctx = canvas.getContext('2d');
+
+  // Global Options:
+  Chart.defaults.global.defaultFontColor = 'black';
+  Chart.defaults.global.defaultFontSize = 14;
+
+  var data = {
+    responsive: true,
+    labels: ['0','Agricultural Production', 'Postharvest handling and storage', 'Processing and packaging', 'Distribution', 'Consumption'],
+    datasets: [{
+      label: "Cereals",
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "blue",
+      borderColor: "blue", // The main line color
+      borderCapStyle: 'square',
+      borderJoinStyle: 'miter',
+      pointBorderColor: "blue",
+      pointBackgroundColor: "blue",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "blue",
+      pointHoverBorderColor: "blue",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      data: [100, 98, 96.04, 85.95, 84.23, 61.49],
+      spanGaps: true,
     }, {
-      name: 'Roots and tubers',
-      data: [20, 10, 15, 7, 30]
+      label: "Roots and Tubers",
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "red",
+      borderColor: "red", // The main line color
+      borderCapStyle: 'square',
+      borderJoinStyle: 'miter',
+      pointBorderColor: "red",
+      pointBackgroundColor: "red",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "red",
+      pointHoverBorderColor: "red",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      data: [100, 80, 72, 61.2, 56.91, 39.84],
+      spanGaps: true,
+    }, {
+      label: "Oilseeds and Pulses",
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "orange",
+      borderColor: "orange", // The main line color
+      borderCapStyle: 'square',
+      borderJoinStyle: 'miter',
+      pointBorderColor: "orange",
+      pointBackgroundColor: "orange",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "orange",
+      pointHoverBorderColor: "orange",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      data: [100, 88, 88, 83.6, 82.76, 79.45],
+      spanGaps: true,
+    }, {
+      label: "Fruits and Vegetables",
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "yellow",
+      borderColor: "yellow", // The main line color
+      borderCapStyle: 'square',
+      borderJoinStyle: 'miter',
+      pointBorderColor: "yellow",
+      pointBackgroundColor: "yellow",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "yellow",
+      pointHoverBorderColor: "yellow",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      data: [100, 80, 76.8, 75.26, 66.23, 47.68],
+      spanGaps: true,
+    }, {
+      label: "Meat",
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "green",
+      borderColor: "green", // The main line color
+      borderCapStyle: 'square',
+      borderJoinStyle: 'miter',
+      pointBorderColor: "green",
+      pointBackgroundColor: "green",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "green",
+      pointHoverBorderColor: "green",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      data: [100, 96.5, 95.53, 90.75, 87.12, 77.54],
+      spanGaps: true,
+    }, {
+      label: "Fish and Seafood",
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "pink",
+      borderColor: "pink", // The main line color
+      borderCapStyle: 'square',
+      borderJoinStyle: 'miter',
+      pointBorderColor: "pink",
+      pointBackgroundColor: "pink",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "pink",
+      pointHoverBorderColor: "pink",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      data: [100, 88, 87.56, 82.30, 74.89, 50.18],
+      spanGaps: true,
     },
     {
-      name: 'Oilseeds and pulses',
-      data: [12, 0, 5, 1, 4]
-    },
-    {
-      name: 'Fruits and vegetables',
-      data: [20, 4, 2, 12, 28]
-    },{
-      name: 'Meat',
-      data: [3.5, 1, 5, 4, 11]
-    }, {
-      name: 'Fish and seafood',
-      data: [12, .5, 6, 9, 33]
-    },  {
-      name: 'Milk',
-      data: [3.5, 0.5, 1.2, 0.5, 15]
-    }],
-    responsive: {
-      rules: [{
-        condition: {
-          maxWidth: 500
-        },
-        chartOptions: {
-          legend: {
-            align: 'center',
-            verticalAlign: 'top',
-            y: 75,
-            layout: 'horizontal'
-          },
-          yAxis: {
-            labels: {
-              align: 'left',
-              x: 0,
-              y: -5
-            },
-            title: {
-              text: null
-            }
-          },
-          xAxis: {
-            labels: {
-              autoRotation: [-90]
-            }
-          },
-          subtitle: {
-            text: null
-          },
-          credits: {
-            enabled: false
-          }
-        }
-      }]
+      label: "Milk",
+      fill: false,
+      lineTension: 0.1,
+      backgroundColor: "purple",
+      borderColor: "purple",
+      borderCapStyle: 'butt',
+      borderJoinStyle: 'miter',
+      pointBorderColor: "purple",
+      pointBackgroundColor: "purple",
+      pointBorderWidth: 1,
+      pointHoverRadius: 8,
+      pointHoverBackgroundColor: "purple",
+      pointHoverBorderColor: "purple",
+      pointHoverBorderWidth: 2,
+      pointRadius: 4,
+      pointHitRadius: 10,
+      data: [100, 96.5, 96.01, 94.86, 94.39, 80.23],
+      spanGaps: false,
     }
-  }); // close highchart
-  // taucharts making ajax call to json data to make chart on donation centers
-  if ( $(window).width() > 739) {
-    var tauUrl = './donations.json';
-    var donations = '';
+  ]
+};
 
-    // ttaucharts for big screens
-    $.ajax({
-      type:'GET',
-      url: tauUrl,
-      data: donations,
-      async: true,
-      dataType:'json',
-      success:function(donations){
-        console.log('tau');
-        var chart = new Taucharts.Chart({
-          guide: {
-            x: {label:'Threat Level'},  // custom label for X axis
-            y: {label:'Percentage Agencies Reporting Challenges'},    // custom label for Y axis
-            padding: {b:40,l:40,t:10,r:10}   // chart paddings
-          },
-          data: donations,
-          type: 'bar',
-          x: 'Threat Level',
-          y: 'Percentage Threatened',
-          color:'Type of Threat',
-          plugins: [
-            Taucharts.api.plugins.get('tooltip')({
-              fields:['Type of Threat','Threat Level', 'Percentage Threatened']
-            }),
-            Taucharts.api.plugins.get('legend')({
-              position: 'right',
-            }),
-          ]
-        }); // close tauchart
-        chart.renderTo('#tauResults');
-
-      } //close success
-    }); //close ajax
+// Notice the scaleLabel at the same level as Ticks
+var options = {
+  responsive: true,
+  maintainAspectRatio:true,
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero:true
+      },
+      scaleLabel: {
+        display: true,
+        labelString: '% of Total Produced Food Remaining',
+        fontSize: 14
+      }
+    }]
   }
-  else {
-    var tauUrl = './donations.json';
-    var donations = '';
+};
 
-    // taucharts for small screens
-    $.ajax({
-      type:'GET',
-      url: tauUrl,
-      data: donations,
-      async: true,
-      dataType:'json',
-      success:function(donations){
-        console.log('tau');
-        var chart = new Taucharts.Chart({
-          guide: {
-            x: {label:'Threat Level'},  // custom label for X axis
-            y: {label:'Percentage Agencies Reporting Challenges'},    // custom label for Y axis
-            padding: {b:40,l:40,t:10,r:10}   // chart paddings
-          },
-          data: donations,
-          type: 'bar',
-          x: 'Threat Level',
-          y: 'Percentage Threatened',
-          color:'Type of Threat',
-          plugins: [
-            Taucharts.api.plugins.get('tooltip')({
-              fields:['Type of Threat','Threat Level', 'Percentage Threatened']
-            }),
-            Taucharts.api.plugins.get('legend')({
-              position: 'left',
-              width: '20',
-            }),
-          ]
-        }); // close tauchart
-        chart.renderTo('#tauResults');
-        window.dispatchEvent(new Event('resize'));
-      } //close success
-    }); //close ajax
-  }
+// Chart declaration:
+var myBarChart = new Chart(ctx, {
+  type: 'line',
+  data: data,
+  options: options
+}); // end charts.js
+
+
+// taucharts making ajax call to json data to make chart on donation centers
+if ( $(window).width() > 739) {
+  var tauUrl = './donations.json';
+  var donations = '';
+
+  // ttaucharts for big screens
+  $.ajax({
+    type:'GET',
+    url: tauUrl,
+    data: donations,
+    async: true,
+    dataType:'json',
+    success:function(donations){
+      console.log('tau');
+      var chart = new Taucharts.Chart({
+        guide: {
+          x: {label:'Threat Level'},  // custom label for X axis
+          y: {label:'Percentage of Agencies Threatened'},    // custom label for Y axis
+          padding: {b:40,l:40,t:10,r:10}   // chart paddings
+        },
+        data: donations,
+        type: 'bar',
+        x: 'Threat Level',
+        y: 'Percentage of Agencies Threatened',
+        color:'Type of Threat',
+        plugins: [
+          Taucharts.api.plugins.get('tooltip')({
+            fields:['Type of Threat','Threat Level', 'Percentage Threatened']
+          }),
+          Taucharts.api.plugins.get('legend')({
+            position: 'right',
+          }),
+        ]
+      }); // close tauchart
+      chart.renderTo('#tauResults');
+
+    } //close success
+  }); //close ajax
+}
+else {
+  var tauUrl = './donations.json';
+  var donations = '';
+
+  // taucharts for small screens
+  $.ajax({
+    type:'GET',
+    url: tauUrl,
+    data: donations,
+    async: true,
+    dataType:'json',
+    success:function(donations){
+      console.log('tau');
+      var chart = new Taucharts.Chart({
+        guide: {
+          x: {label:'Threat Level'},  // custom label for X axis
+          y: {label:'Percentage Agencies Reporting Challenges'},    // custom label for Y axis
+          padding: {b:40,l:40,t:10,r:10}   // chart paddings
+        },
+        data: donations,
+        type: 'bar',
+        x: 'Threat Level',
+        y: 'Percentage of Agencies Threatened',
+        color:'Type of Threat',
+        plugins: [
+          Taucharts.api.plugins.get('tooltip')({
+            fields:['Type of Threat','Threat Level', 'Percentage Threatened']
+          }),
+          Taucharts.api.plugins.get('legend')({
+            position: 'left',
+            width: '20',
+          }),
+        ]
+      }); // close tauchart
+      chart.renderTo('#tauResults');
+      window.dispatchEvent(new Event('resize'));
+    } //close success
+  }); //close ajax
+}
 }); // close wrapper
